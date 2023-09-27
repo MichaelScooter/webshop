@@ -1,11 +1,7 @@
 <?php
 require "settings/init.php";
 
-
-$blogs = $db->sql("SELECT * FROM bog");
-
 ?>
-
 
 <!-- Instruktion til webbrowser om at vi kører HTML5 -->
 <!DOCTYPE html>
@@ -57,14 +53,7 @@ $blogs = $db->sql("SELECT * FROM bog");
 </div>
 
 
-<?php
-foreach ($blogs as $blog){
-    echo $blog->bogTitel . "<br>";
-}
 
-
-
-?>
 
 
 
