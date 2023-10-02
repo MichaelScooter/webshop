@@ -1,6 +1,15 @@
 <?php
 require "settings/init.php";
 
+if(!empty($_GET["type"])) {
+    if($_GET["type"] == "slet"){
+        $id = $_GET["id"];
+
+        $db->sql("DELETE FROM bog WHERE bogId = :bogId", [":bogId"=>$id], false);
+    }
+
+
+}
 
 $bog = $db->sql("SELECT * FROM bog");
 
@@ -59,14 +68,33 @@ $bog = $db->sql("SELECT * FROM bog");
 </div>
 
 
-<?php
-foreach ($bog as $blog){
-    echo $blog->bogTitel . "<br>";
-}
 
 
+  <?php
+    foreach ($bog as $blog){
+      ?>
+          <div class="row">
+              <div class="col-12 col-md-6">
+                  <?php
+                  echo $blog->bogTitel;
+                  ?>
+              </div
+              <div class="col-12 col-md-6">
+                  <?php
+                  echo number_format($blog->bogPris, 2, ",", ".");
+                  ?>
+              </div
+              <div class="col-12 col-md-6">
+                  <a href="insert.php?type=rediger&id=<?php echo $blog->bogId; ?>">Rediger</a>
+              </div
+              <div class="col-12 col-md-6">
+                  <a href="index.php?type=slet&id=<?php echo $blog->bogId; ?>">Slet</a>
+              </div
+          </div>
+      <?php
 
-?>
+    }
+  ?>
 
 
 <?php include "include/footer.php"; ?>

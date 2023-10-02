@@ -133,7 +133,7 @@ require "settings/init.php";
                 <div class="col-12 pt-3">
                     <div class="form-group">
                         <label class="form-label" for="bogBillede"></label>
-                        <input type="file" class="form-control" id="bogBillede" name="bogbillede">
+                        <input type="file" class="form-control" id="bogBillede" name="bogBillede">
                     </div>
                 </div>
 
