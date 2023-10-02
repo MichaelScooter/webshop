@@ -33,20 +33,33 @@ require "settings/init.php";
     <div class="container pt-5 ">
         <div class="bg-black ">
         <h1 class="text-white ps-3">Oprettelse af produkter</h1>
-        <p class="text-white ps-3">Udfyld felterne og tryk på "opret produkt" knappen</p>
+        <p class="text-white ps-3">Udfyld <span class="fst-italic text-success">ALLE</span> felterne og tryk på "opret produkt" knappen</p>
         </div>
         <?php
         if(!empty($_POST["data"])){
             $data = $_POST["data"];
+            $file = $_FILES;
+
+            if(!empty($file["bogBillede"]["tmp_name"])){
+                move_uploaded_file($file["bogBillede"]["tmp_name"], "uploads/" . basename($file["bogBillede"]["name"]));
+
+            }
 
 
-            $sql = "INSERT INTO bog (bogTitel, bogForfatter, bogGenre, bogSprog, bogSider, bogPris, bogUdgave, bogForlag, bogUdgivelsesAar, bogISBN, bogBeskrivelse ) VALUES (:bogTitel, :bogForfatter, :bogGenre, :bogSprog, :bogSider, :bogPris, :bogUdgave, :bogForlag, :bogUdgivelsesAar, :bogISBN, :bogBeskrivelse)";
-            $bind = [":bogTitel" => $data["bogTitel"], ":bogForfatter" => $data["bogForfatter"], ":bogGenre" => $data["bogGenre"], ":bogSprog" => $data["bogSprog"], ":bogSider" => $data["bogSider"], ":bogPris" => $data["bogPris"], ":bogUdgave" => $data["bogUdgave"], ":bogForlag" => $data["bogForlag"], ":bogUdgivelsesAar" => $data["bogUdgivelsesAar"], ":bogISBN" => $data["bogISBN"], ":bogBeskrivelse" => $data["bogBeskrivelse"]];
+            $sql = "INSERT INTO bog (bogTitel, bogForfatter, bogGenre, bogSprog, bogSider, bogPris, bogUdgave, bogForlag, bogUdgivelsesAar, bogISBN, bogBillede, bogBeskrivelse ) VALUES (:bogTitel, :bogForfatter, :bogGenre, :bogSprog, :bogSider, :bogPris, :bogUdgave, :bogForlag, :bogUdgivelsesAar, :bogISBN, :bogBillede, :bogBeskrivelse)";
+            $bind = [":bogTitel" => $data["bogTitel"], ":bogForfatter" => $data["bogForfatter"], ":bogGenre" => $data["bogGenre"], ":bogSprog" => $data["bogSprog"], ":bogSider" => $data["bogSider"], ":bogPris" => $data["bogPris"], ":bogUdgave" => $data["bogUdgave"], ":bogForlag" => $data["bogForlag"], ":bogUdgivelsesAar" => $data["bogUdgivelsesAar"], ":bogISBN" => $data["bogISBN"], ":bogBillede" => (!empty($file["bogBillede"]["tmp_name"])) ? $file["bogBillede"]["name"] : NULL, ":bogBeskrivelse" => $data["bogBeskrivelse"]];
 
-            $db->sql($sql, $bind, false);
+            if(!empty($data["bogTitel"]) && !empty($data["bogForfatter"])&& !empty($data["bogGenre"])&& !empty($data["bogSprog"])&& !empty($data["bogSider"])&& !empty($data["bogPris"])&& !empty($data["bogUdgave"])&& !empty($data["bogForlag"])&& !empty($data["bogUdgivelsesAar"])&& !empty($data["bogISBN"])&& !empty($data["bogBeskrivelse"])){
+                $db->sql($sql, $bind, false);
+
+                $statusMsg = "<h3 class='text-success pt-3 ps-3'>Produktet blev indsat korrekt.</h3><a href='insert.php' class='text-white ps-3'><span class='text-decoration-underline'>Opret et produkt mere</span></a>";
+            } else {
+                $statusMsg = "<h3 class='text-danger pt-3 ps-3'>Produktet blev IKKE indsat korrekt.</h3><a href='insert.php' class='text-white ps-3'><span class='text-decoration-underline'>Prøv igen</span></a>";
+            }
+
 
             /* Får at tjekke om koden virker og exit for ikke at køre resten af koden på siden.*/
-            echo "<h3 class='text-success pt-3'>Produktet blev indsat korrekt.</h3><a href='insert.php' class='text-white'>Opret et produkt mere</a>";
+            echo $statusMsg;
             exit;
         }
         ?>
@@ -54,12 +67,12 @@ require "settings/init.php";
 
 
     <div class=" px-5 bg-light border border-dark border-1">
-        <form method="post" action="insert.php">
+        <form method="post" action="insert.php" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12 col-md-6 pt-3">
                     <div class="form-group">
                         <label for="bogTitel" class="fw-semibold">Titel</label>
-                        <input class="form-control" type="text" name="data[bogTitel]" id="bogTitel" placeholder="Indtast bogens titel" value="">
+                        <input class="form-control" type="text" name="data[bogTitel]" id="bogTitel" placeholder="Indtast bogens titel" value="" required>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 pt-3">
@@ -116,6 +129,15 @@ require "settings/init.php";
                         <input class="form-control" type="text" name="data[bogISBN]" id="bogISBN" placeholder="000-0-00-000000-0" value="">
                     </div>
                 </div>
+
+                <div class="col-12 pt-3">
+                    <div class="form-group">
+                        <label class="form-label" for="bogBillede"></label>
+                        <input type="file" class="form-control" id="bogBillede" name="bogbillede">
+                    </div>
+                </div>
+
+
                 <div class="col-12 pt-3">
                     <div class="form-group">
                         <label for="bogBeskrivelse" class="fw-semibold">Produkt beskrivelse</label>

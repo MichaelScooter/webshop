@@ -15,13 +15,13 @@ $url = end($path);
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-secondary-hover">
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ($url == "forside.php") ? "active" : "" ?>" aria-current="page" href="forside.php">Forside</a>
+                    <a class="nav-link <?php echo ($url == "index.php") ? "active" : "" ?>" aria-current="page" href="index.php">Forside</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ($url == "index.php") ? "active" : "" ?>" href="http://index.php">Bøger</a>
+                    <a class="nav-link <?php echo ($url == "index.php") ? "active" : "" ?>" href=""></a>
                 </li>
             </ul>
-            <a href="insert.php" class="btn btn-primary text-white ms-lg-2">Opret Produkter</a>
+            <a href="insert.php" class="btn btn-primary text-white ms-lg-2">Produkt oprettelse</a>
         </div>
     </div>
 </nav>

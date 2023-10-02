@@ -2,7 +2,7 @@
 require "settings/init.php";
 
 
-$blogs = $db->sql("SELECT * FROM bog");
+$bog = $db->sql("SELECT * FROM bog");
 
 ?>
 
@@ -48,9 +48,11 @@ $blogs = $db->sql("SELECT * FROM bog");
                 <img src="images/bogtest.webp" alt="Billede" class="img-fluid pt-5 pt-lg-0">
             </div>
             <div class="col-md-6 ps-md-5 text-center align-self-start align-self-md-center text-md-start pb-5 pt-4 pt-md-0">
-                <h1>Ny Bog</h1>
-                <p class="lead">En fantastisk biografi om Lone Ditlevsen</p>
-                <a href="#" class="btn btn-primary btn-lg bg-danger border-white text-white">Køb</a>
+                <h1 class="ps-md-4">Ny Bog</h1>
+                <p class="lead ps-md-4">En fantastisk biografi om Lone Ditlevsen</p>
+                <div class="ps-md-4">
+                <a href="#" class="btn btn-primary btn-lg border-white text-white">Køb</a>
+                </div>
             </div>
         </div>
     </div>
@@ -58,20 +60,13 @@ $blogs = $db->sql("SELECT * FROM bog");
 
 
 <?php
-foreach ($blogs as $blog){
+foreach ($bog as $blog){
     echo $blog->bogTitel . "<br>";
 }
 
 
 
 ?>
-
-
-
-
-
-
-
 
 
 <?php include "include/footer.php"; ?>

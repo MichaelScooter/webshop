@@ -10,7 +10,13 @@ $link-decoration: none;
 
 // 4. Include any default map overrides here
 $custom-colors: (
-				"farve": $cyan-400,
+
+
+	"primary": #ff0015,
+	"secondary": #2d0606,
+	"farve3": #F9f9f9,
+	"farve4": #121212,
+	"farve5": #00802e,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
