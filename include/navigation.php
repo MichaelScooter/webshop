@@ -18,10 +18,11 @@ $url = end($path);
                     <a class="nav-link <?php echo ($url == "index.php") ? "active" : "" ?>" aria-current="page" href="index.php">Forside</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ($url == "index.php") ? "active" : "" ?>" href=""></a>
+                    <a class="nav-link <?php echo ($url == "the_road.php") ? "active" : "" ?>" href="the_road.php">The Road</a>
                 </li>
             </ul>
-            <a href="insert.php" class="btn btn-primary text-white ms-lg-2">Produkt oprettelse</a>
+            <a href="insert.php" class="btn bg-primary text-white ms-lg-2">Produkt oprettelse</a>
+            <a href="update_product.php" class="btn bg-secondary text-white ms-lg-2">Ret/Slet Produkt</a>
         </div>
     </div>
 </nav>

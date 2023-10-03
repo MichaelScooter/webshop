@@ -14,7 +14,12 @@ header('content-type: application/json; chartset=utf-8');
 
 if($data["password"] == "KickPHP") {
 
+/*
+    Kode eksempel fra video undervisning:
     $sql = "SELECT * FROM bog WHERE 1=1 ";
+    $bind = [];
+*/
+    $sql = "SELECT * FROM bog WHERE bogPris> 100 AND bogPris <= 200 AND bogSider< 300 ORDER BY bogPris ASC ";
     $bind = [];
 
     /* Her er valgt $data, da det er det vi har kaldt i linje 5 + nameSearch, da vi har valgt vi ville have det med linje 11
