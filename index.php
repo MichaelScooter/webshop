@@ -1,21 +1,3 @@
-<?php
-require "settings/init.php";
-
-if(!empty($_GET["type"])) {
-    if($_GET["type"] == "slet"){
-        $id = $_GET["id"];
-
-        $db->sql("DELETE FROM bog WHERE bogId = :bogId", [":bogId"=>$id], false);
-    }
-
-
-}
-
-$bog = $db->sql("SELECT * FROM bog");
-
-?>
-
-
 <!-- Instruktion til webbrowser om at vi kører HTML5 -->
 <!DOCTYPE html>
 
@@ -70,33 +52,6 @@ $bog = $db->sql("SELECT * FROM bog");
 
 
 
-  <?php
-    foreach ($bog as $blog){
-      ?>
-        <div class="container pt-3 pt-lg-5 px-lg-5">
-          <div class="row">
-
-              <div class="col-12 col-md-6">
-                  <?php
-                  echo $blog->bogTitel;
-                  ?>
-              </div>
-              <div class="col-12 col-md-6">
-                  <?php
-                  echo number_format($blog->bogPris, 2, ",", ".");
-                  ?>
-              </div>
-
-              <div class="col-12">
-                  <button class="btn bg-success">  <a href="insert.php?type=rediger&id=<?php echo $blog->bogId; ?>" class="text-white">Rediger</a></button>
-                  <button class="btn bg-danger"><a href="index.php?type=slet&id=<?php echo $blog->bogId; ?>" class="text-white">Slet</a></button>
-              </div>
-          </div>
-        </div>
-      <?php
-
-    }
-  ?>
 
 
 <?php include "include/footer.php"; ?>

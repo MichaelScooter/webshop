@@ -12,8 +12,8 @@ $link-decoration: none;
 $custom-colors: (
 
 
-	"primary": #ff0015,
-	"secondary":#2d0606,
+	"primary": #83BA26,
+	"secondary":#4D8D2F,
 	"farve3": #F9f9f9,
 	"farve4": #121212,
 	"farve5": #00802e,
@@ -30,15 +30,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	max-height: 60px;
 }
 
-#navbarSupportedContent .btn-primary{
-	background-color: #222222;
-	border-color: white;
-}
 
-#navbarSupportedContent .btn-primary:hover{
-	background-color: #dc3545;
-	border-color: white;
-}
 
 .hero {
 
@@ -47,7 +39,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	}
 	p{
-		font-size: 1.5rem;
+
 		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 	}
 
@@ -95,11 +87,21 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @media (min-width: 768px) {
 	.hero {
 			h1{
-				font-size: 7.3rem;
+				font-size: 4rem;
+			}
+
+			.lead{
+				font-size: 1.8rem;
 			}
 
 			p{
+				font-size: 1.2rem;
+				font-weight:300;
+			}
+
+			.pris{
 				font-size: 2.5rem;
+				font-weight:300;
 			}
 	}
 
