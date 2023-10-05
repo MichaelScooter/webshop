@@ -125,7 +125,7 @@ require "settings/init.php";
                 <div class="col-12 col-md-3 pt-3">
                     <div class="form-group">
                         <label for="bogPris" class="fw-semibold">Pris</label>
-                        <input class="form-control opretProdukter" type="number" name="data[bogPris]" lang="da" id="bogPris" placeholder="F.eks. 249.00" value="">
+                        <input class="form-control opretProdukter" type="number" name="data[bogPris]" lang="da" id="bogPris" placeholder="F.eks. 249,00" value="">
                     </div>
                 </div>
                 <div class="col-12 col-md-3 pt-3">
