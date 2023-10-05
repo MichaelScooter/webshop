@@ -12,6 +12,8 @@ Det her er hvad vi ønsker der skal sendes med i vores service. (KickPHP er det 
 
 header('content-type: application/json; chartset=utf-8');
 
+$data["password"] = "KickPHP";
+
 if($data["password"] == "KickPHP") {
 
 /*

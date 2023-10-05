@@ -67,7 +67,7 @@ $bog = $db->sql("SELECT * FROM bog ORDER BY bogTitel ASC");
                 </div>
                 <div class="col-12 col-md-6 text-end">
                     <button class="btn bg-success">  <a href="insert.php?type=rediger&id=<?php echo $blog->bogId; ?>" class="text-white">Rediger</a></button>
-                    <button class="btn bg-danger"><a href="index.php?type=slet&id=<?php echo $blog->bogId; ?>" class="text-white">Slet</a></button>
+                    <a href="update_product.php?type=slet&id=<?php echo $blog->bogId; ?>" class="btn btn-danger text-white">Slet</a>
                 </div>
             </div>
         </div>
