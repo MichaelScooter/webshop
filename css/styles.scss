@@ -84,6 +84,24 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 }
 
+/* --- Fjerner tæller pille ved inputfelter (Jeg har sat en klasse på, så det kun rammer input på insert siden.- START ---*/
+
+/* Chrome, Safari, Edge, Opera */
+input.opretProdukter::-webkit-outer-spin-button,
+input.opretProdukter::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input.opretProdukter[type=number] {
+	-moz-appearance: textfield;
+}
+
+/* --- Fjerner tæller pille ved inputfelter - SLUT ---*/
+
+
+
 @media (min-width: 768px) {
 	.hero {
 			h1{

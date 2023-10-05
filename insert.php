@@ -24,6 +24,29 @@ require "settings/init.php";
     <script src="https://cdn.tiny.cloud/1/071g1xh1hwccgkhfewg0rdoqybb95uwgaiyhpb7xt8dyxzce/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 
+    // Funktion til at validere og omformatere prisen fra komma til punktum
+    <script>
+        function validateAndFormatPrice(input) {
+            const inputValue = input.value;
+            // Fjern alle ikke-numeriske tegn undtagen komma
+            const numericValue = inputValue.replace(/[^0-9,]/g, '');
+            // Erstat komma med punktum, hvis nødvendigt
+            const formattedValue = numericValue.replace(',', '.');
+            // Opdater inputfeltet med den formaterede værdi
+            input.value = formattedValue;
+        }
+
+        // Lyt efter inputbegivenheder på prisfeltet ved hjælp af querySelector
+        const bogPrisInput = document.querySelector('#bogPris');
+        if (bogPrisInput) {
+            bogPrisInput.addEventListener('input', function () {
+                validateAndFormatPrice(this);
+            });
+        }
+    </script>
+
+
+
 </head>
 
 <body>
@@ -96,13 +119,13 @@ require "settings/init.php";
                 <div class="col-12 col-md-3 pt-3">
                     <div class="form-group">
                         <label for="bogSider" class="fw-semibold">Sider</label>
-                        <input class="form-control" type="number" name="data[bogSider]" id="bogSider" placeholder="Indtast antal sider" value="">
+                        <input class="form-control opretProdukter" type="number" name="data[bogSider]" id="bogSider" placeholder="Indtast antal sider" value="">
                     </div>
                 </div>
                 <div class="col-12 col-md-3 pt-3">
                     <div class="form-group">
-                        <label for="bogPris" class="fw-semibold">Pris (brug punktum og <span class="fst-italic text-danger">ikke</span> komma)</label>
-                        <input class="form-control" type="number" name="data[bogPris]" id="bogPris" placeholder="F.eks. 249.00" value="">
+                        <label for="bogPris" class="fw-semibold">Pris</label>
+                        <input class="form-control opretProdukter" type="number" name="data[bogPris]" lang="da" id="bogPris" placeholder="F.eks. 249.00" value="">
                     </div>
                 </div>
                 <div class="col-12 col-md-3 pt-3">
@@ -120,7 +143,7 @@ require "settings/init.php";
                 <div class="col-12 col-md-3 pt-3">
                     <div class="form-group">
                         <label for="bogUdgivelsesAar" class="fw-semibold">Udgivelsesår</label>
-                        <input class="form-control" type="number" name="data[bogUdgivelsesAar]" id="bogUdgivelsesAar" placeholder="1900" value="">
+                        <input class="form-control opretProdukter" type="number" name="data[bogUdgivelsesAar]" id="bogUdgivelsesAar" placeholder="1900" value="">
                     </div>
                 </div>
                 <div class="col-12 col-md-3 pt-3">
