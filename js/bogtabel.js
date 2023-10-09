@@ -33,7 +33,6 @@ export default class BogTabel{
                         <h5 class="card-title">${item.bogTitel}</h5>
                         <hp class="card-text">${item.bogBeskrivelse}</hp>
                         <a href="api.php?bogId=${item.bogId}" class="btn btn-primary text-white w-100">Se bogen</a>
-                    
                     </div>
                </div>
             `;
@@ -41,7 +40,7 @@ export default class BogTabel{
             row.appendChild(col);
         }
 
-        this.items.appendChild(row)
+        this.items.appendChild(row);
 
     }
 
