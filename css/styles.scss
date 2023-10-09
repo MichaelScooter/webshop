@@ -69,6 +69,13 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	height:850px;
 }
 
+/* image card = Stien fra video, men virker ikke */
+.bogtabel .items .card-img-top{
+	height: 200px;
+	object-fit: cover;
+}
+
+
 #footer{
 	background: #222222;
 

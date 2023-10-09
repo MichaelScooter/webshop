@@ -19,8 +19,33 @@
 
 <body>
 
+<div class="container">
+	<div class="bogtabel">
+		<div class="filter p-5">
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<input type="search" class="form-control nameSearch" placeholder="Søg og du skal finde">
+				</div>
+			</div>
+		</div>
+
+		<div class="items">
+			<!-- Her vises produkterne -->
+		</div>
+	</div>
+
+
+
+</div>
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module">
+	import BogTabel from "./js/bogtabel.js";
+
+	const bogtabel = new BogTabel();
+	bogtabel.init();
+
+</script>
 </body>
 </html>
