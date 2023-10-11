@@ -42,7 +42,7 @@
                 <h1 class="ps-md-4">Ny Bog</h1>
                 <p class="lead ps-md-4">En fantastisk biografi om Lone Ditlevsen</p>
                 <div class="ps-md-4">
-                <a href="#" class="btn btn-primary btn-lg border-white text-white">Køb</a>
+                <a href="shop.php" class="btn btn-primary btn-lg border-white text-white">Køb</a>
                 </div>
             </div>
         </div>

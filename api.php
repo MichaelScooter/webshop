@@ -28,12 +28,16 @@ if($data["password"] == "KickPHP") {
     /* Her er valgt $data, da det er det vi har kaldt i linje 5 + nameSearch, da vi har valgt vi ville have det med linje 11
     - Denne kode: $sql = $sql . ""; er skrevet kortere med denne = $sql .= "";
     */
-    if(isset($data["nameSearch"]) && !empty($data["nameSearch"])){
 
-        /* LIKE CONCAT('%', :bogTitel, '%') gør, at vi leder efter det der bliver tastet ind i bogTitel (Søgefelt på shop siden), men der må gerne være noget før og efter, som vi ikke ved hvad er. Det er % tegnene der står som jokere på pladsen */
-        $sql .= " AND bogTitel LIKE CONCAT('%', :bogTitel, '%') ";
-        $bind[":bogTitel"] = $data["nameSearch"];
+
+    if (isset($data["nameSearch"]) && !empty($data["nameSearch"])) {
+        $nameSearch = "%" . $data["nameSearch"] . "%";
+        $sql .= " AND (bogTitel LIKE :bogTitel OR bogForfatter LIKE :bogForfatter OR bogSprog LIKE :bogSprog)";
+        $bind[":bogTitel"] = $nameSearch;
+        $bind[":bogForfatter"] = $nameSearch;
+        $bind[":bogSprog"] = $nameSearch;
     }
+
 
     $sql .= " ORDER BY bogTitel ASC";
 

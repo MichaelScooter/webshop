@@ -50,18 +50,19 @@ $bog = $db->sql("SELECT * FROM bog WHERE bogId = :bogId", [":bogId" => $_GET["bo
 
 <!-- Her skal sidens indhold ligge -->
 <!-- Header Sektion --------------------------------------------------------------------------------------------------->
-<div class="hero text-white pt-5 pt-lg-1">
-    <div class="container-fluid p-lg-5 " style="background-image: url('images/book6.webp'); background-size: cover; background-repeat: no-repeat; background-position:bottom; background-attachment: fixed ">
+<div class="hero text-white pt-5 pt-lg-0">
+    <div class="container-fluid pt-3 heroBaggrundsBillede" >
         <?php
              foreach ($bog as $blog){
             ?>
 
-                <div class="row align-items-center flex-md-row-reverse pt-2 p-lg-5 h-100">
-                    <div class="col-md-6 d-flex justify-content-center">
+                <div class="row align-items-center flex-md-row-reverse pt-2 pb-5 pb-lg-0 px-lg-5 pt-lg-0 ">
+
+                    <div class="col-lg-6 d-flex justify-content-center pb-5 pb-lg-0">
                         <img src="uploads/<?php echo $blog->bogBillede; ?>" alt="Bog Cover" class="img-fluid pt-5 p-lg-5 bookCover">
                     </div>
 
-                    <div class="col-md-6 ps-md-5 text-center align-self-start align-self-md-center text-md-start pb-5 pt-4 pt-md-0">
+                    <div class="col-lg-6 ps-md-5 text-center align-self-start align-self-md-center text-md-start pb-5 pt-4 pt-md-0">
                         <h5 class="ps-md-4 mb-0 text-primary fw-light">Titel:</h5>
                         <h1 class="ps-md-4">
                             <?php echo $blog->bogTitel; ?>

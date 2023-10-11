@@ -30,7 +30,15 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	max-height: 60px;
 }
 
+.heroBaggrundsBillede{
+	background-image: url("../images/book6.webp");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: bottom;
+	min-height:1500px;
 
+}
 
 .hero {
 
@@ -66,7 +74,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 }
 
 .hero .container-fluid{
-	height:850px;
+	height:855px;
 }
 
 
@@ -106,6 +114,12 @@ input.opretProdukter[type=number] {
 
 
 @media (min-width: 768px) {
+
+	.heroBaggrundsBillede{
+		background-image: url("../images/book6.webp");
+		min-height:2000px;
+	}
+
 	.hero {
 			h1{
 				font-size: 4rem;
@@ -138,6 +152,11 @@ input.opretProdukter[type=number] {
 }
 
 @media (min-width: 1024px) {
+
+	.heroBaggrundsBillede{
+		background-image: url("../images/book6.webp");
+		min-height:850px;
+	}
 
 	.hero img{
 		max-width:60%;
