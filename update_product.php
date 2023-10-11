@@ -51,30 +51,45 @@ $bog = $db->sql("SELECT * FROM bog ORDER BY bogTitel ASC");
 <!-- Her skal sidens indhold ligge -->
 
 
-<div class="container py-3 p-lg-5">
-    <h1 class="pt-5 mt-5 px-lg-5">Opdatering af produkter</h1>
-    <p class="lead px-lg-5">Bogtitel:</p>
-    <?php
-    foreach ($bog as $blog){
-        ?>
-        <div class="pt-3 px-lg-5">
-
-            <div class="row border border-dark p-3">
-                <div class="col-12 col-md-6">
-                    <?php
-                    echo $blog->bogTitel;
-                    ?>
+<div class="container-fluid pt-3 p-lg-5 mb-5 opretImage" style=" background-image: url('images/book6.webp'); background-size: cover; background-repeat: no-repeat; background-position:top ; background-attachment: fixed">
+   <div class="pb-5 pb-lg-0">
+       <div class="pb-5 pb-lg-0">
+           <div class="pb-3 pb-lg-0">
+            <div class="px-lg-5 pt-5 pt-lg-4">
+               <div class="px-lg-5">
+                   <div class="bg-black mb-0 rounded-3">
+                        <h1 class="mt-5 ps-3 text-white">Opdatering af produkter</h1>
+                        <p class="lead ps-3 text-white">Bogtitel:</p>
+                   </div>
+               </div>
+           </div>
+            <?php
+            foreach ($bog as $blog){
+                ?>
+                <div class="pt-3 px-lg-5">
+                    <div class="px-lg-5">
+                    <div class="bg-white rounded-3 border border-dark">
+                        <div class="row p-3">
+                            <div class="col-12 col-md-6">
+                                <?php
+                                echo $blog->bogTitel;
+                                ?>
+                            </div>
+                            <div class="col-12 col-md-6 text-end">
+                                <button class="btn bg-secondary">  <a href="insert.php?type=rediger&id=<?php echo $blog->bogId; ?>" class="text-white">Rediger</a></button>
+                                <a href="update_product.php?type=slet&id=<?php echo $blog->bogId; ?>" class="btn btn-danger text-white">Slet</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-12 col-md-6 text-end">
-                    <button class="btn bg-success">  <a href="insert.php?type=rediger&id=<?php echo $blog->bogId; ?>" class="text-white">Rediger</a></button>
-                    <a href="update_product.php?type=slet&id=<?php echo $blog->bogId; ?>" class="btn btn-danger text-white">Slet</a>
-                </div>
-            </div>
-        </div>
-        <?php
+                <?php
 
-    }
-    ?>
+            }
+            ?>
+           </div>
+       </div>
+   </div>
 </div>
 
 

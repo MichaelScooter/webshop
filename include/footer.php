@@ -1,4 +1,4 @@
-<div class="" id="footer">
+<div class="fixed-bottom" id="footer">
     <footer class="container-fluid text-white border-white border-top border-1">
 
         <div class="row text-center align-items-center justify-content-evenly py-3">

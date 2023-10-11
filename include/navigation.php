@@ -18,7 +18,7 @@ $url = end($path);
                     <a class="nav-link <?php echo ($url == "index.php") ? "active" : "" ?>" aria-current="page" href="index.php">Forside</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ($url == "the_road.php") ? "active" : "" ?>" href="the_road.php">The Road</a>
+                    <a class="nav-link <?php echo ($url == "shop.php") ? "active" : "" ?>" href="shop.php">Shop</a>
                 </li>
             </ul>
             <a href="insert.php" class="btn bg-primary text-white ms-lg-2">Produkt oprettelse</a>

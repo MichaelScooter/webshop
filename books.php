@@ -11,7 +11,7 @@ if(!empty($_GET["type"])) {
 
 }
 
-$bog = $db->sql("SELECT * FROM bog WHERE bogId = 20");
+$bog = $db->sql("SELECT * FROM bog WHERE bogId = :bogId", [":bogId" => $_GET["bogId"]]);
 
 ?>
 
@@ -28,8 +28,8 @@ $bog = $db->sql("SELECT * FROM bog WHERE bogId = 20");
     <meta charset="utf-8">
 
     <!-- Titel som ses oppe i browserens tab mv. -->
-    <title>The Road</title>
-    <meta name="description" content="En fantastisk bog af Cormac McCarthy på 156 sider">
+    <title>Bog</title>
+    <meta name="description" content="Køb din bog i Bogcaféen - Nemt & Hurtigt!">
 
 
     <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
@@ -56,7 +56,7 @@ $bog = $db->sql("SELECT * FROM bog WHERE bogId = 20");
              foreach ($bog as $blog){
             ?>
 
-                <div class="row align-items-center flex-md-row-reverse pt-2 p-lg-5">
+                <div class="row align-items-center flex-md-row-reverse pt-2 p-lg-5 h-100">
                     <div class="col-md-6 d-flex justify-content-center">
                         <img src="uploads/<?php echo $blog->bogBillede; ?>" alt="Bog Cover" class="img-fluid pt-5 p-lg-5 bookCover">
                     </div>
@@ -164,11 +164,8 @@ $bog = $db->sql("SELECT * FROM bog WHERE bogId = 20");
 
 
 
-
-
-
-
 <?php include "include/footer.php"; ?>
+
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 

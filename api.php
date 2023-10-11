@@ -20,17 +20,22 @@ if($data["password"] == "KickPHP") {
     Kode eksempel fra video undervisning:
     $sql = "SELECT * FROM bog WHERE 1=1 ";
     $bind = [];
+    Eksempel: "SELECT * FROM bog WHERE bogPris> 100 AND bogPris <= 200 AND bogSider< 300 ORDER BY bogPris ASC "
 */
-    $sql = "SELECT * FROM bog WHERE bogPris> 100 AND bogPris <= 200 AND bogSider< 300 ORDER BY bogPris ASC ";
+    $sql = "SELECT * FROM bog WHERE 1=1 ";
     $bind = [];
 
     /* Her er valgt $data, da det er det vi har kaldt i linje 5 + nameSearch, da vi har valgt vi ville have det med linje 11
     - Denne kode: $sql = $sql . ""; er skrevet kortere med denne = $sql .= "";
     */
     if(isset($data["nameSearch"]) && !empty($data["nameSearch"])){
-        $sql .= " AND bogTitel = :bogTitel ";
+
+        /* LIKE CONCAT('%', :bogTitel, '%') gør, at vi leder efter det der bliver tastet ind i bogTitel (Søgefelt på shop siden), men der må gerne være noget før og efter, som vi ikke ved hvad er. Det er % tegnene der står som jokere på pladsen */
+        $sql .= " AND bogTitel LIKE CONCAT('%', :bogTitel, '%') ";
         $bind[":bogTitel"] = $data["nameSearch"];
     }
+
+    $sql .= " ORDER BY bogTitel ASC";
 
     $bog = $db->sql($sql, $bind);
     header("HTTP/1.1 200 OK");

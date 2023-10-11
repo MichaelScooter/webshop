@@ -1,7 +1,6 @@
 <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
 
 <link href="css/styles.css" rel="stylesheet" type="text/css">
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">

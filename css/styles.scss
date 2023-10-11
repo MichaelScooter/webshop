@@ -69,12 +69,6 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	height:850px;
 }
 
-/* image card = Stien fra video, men virker ikke */
-.bogtabel .items .card-img-top{
-	height: 200px;
-	object-fit: cover;
-}
-
 
 #footer{
 	background: #222222;
@@ -90,6 +84,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 	}
 
 }
+
+
 
 /* --- Fjerner tæller pille ved inputfelter (Jeg har sat en klasse på, så det kun rammer input på insert siden.- START ---*/
 
@@ -131,10 +127,23 @@ input.opretProdukter[type=number] {
 	}
 
 
-
-	.hero .flex-md-row-reverse{
-		position:relative;
-		top:80px;
+	.hero img{
+		max-width:90%;
 	}
 
+	.hero .flex-md-row-reverse{
+		top:150px;
+	}
+
+}
+
+@media (min-width: 1024px) {
+
+	.hero img{
+		max-width:60%;
+	}
+
+	.hero .flex-md-row-reverse{
+		top:100px;
+	}
 }
