@@ -31,11 +31,19 @@ if($data["password"] == "KickPHP") {
 
 
     if (isset($data["nameSearch"]) && !empty($data["nameSearch"])) {
+        // Tjek om "nameSearch" eksisterer i det indkomne data og ikke er tomt.
+        // Hvis det er tilfældet, udfør følgende:
+
         $nameSearch = "%" . $data["nameSearch"] . "%";
+        // Opret en variabel $nameSearch og tildel den en værdi, der indeholder brugersøgningen med jokertegn (%) foran og bagved.
+
         $sql .= " AND (bogTitel LIKE :bogTitel OR bogForfatter LIKE :bogForfatter OR bogSprog LIKE :bogSprog)";
+        // Tilføj betingelsen til SQL-forespørgslen. Dette søger i tre kolonner (bogTitel, bogForfatter, bogSprog) og bruger LIKE-operatoren til delvise tekstmatcher.
+
         $bind[":bogTitel"] = $nameSearch;
         $bind[":bogForfatter"] = $nameSearch;
         $bind[":bogSprog"] = $nameSearch;
+        // Opret en associeret liste (array) med placeholders for SQL-bindings. Dette sikrer, at søgeudtrykket bliver erstattet i SQL-forespørgslen.
     }
 
 
